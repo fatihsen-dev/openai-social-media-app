@@ -1,0 +1,32 @@
+{
+   "name": "api",
+   "version": "1.0.0",
+   "description": "",
+   "main": "index.js",
+   "scripts": {
+      "dev": "tsc && nodemon ./dist"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "dependencies": {
+      "@types/cors": "^2.8.13",
+      "@types/node": "^18.11.18",
+      "bcrypt": "^5.1.0",
+      "body-parser": "^1.20.1",
+      "cors": "^2.8.5",
+      "dotenv": "^16.0.3",
+      "express": "^4.18.2",
+      "helmet": "^6.0.1",
+      "joi": "^17.7.0",
+      "jsonwebtoken": "^9.0.0",
+      "mongoose": "^6.8.4",
+      "multer": "^1.4.5-lts.1",
+      "ts-node": "^10.9.1",
+      "typescript": "^4.9.4"
+   },
+   "devDependencies": {
+      "@tsconfig/node16": "^1.0.3",
+      "@types/express": "^4.17.15"
+   }
+}
