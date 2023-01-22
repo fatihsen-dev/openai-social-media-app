@@ -19,7 +19,7 @@ app.listen(process.env.PORT || 5000, () => {
    console.log(`Server listen ${process.env.PORT || 5000}`);
 });
 
-app.use("/users", userRouter);
+app.use("/user", userRouter);
 app.use("/photo", photoRouter);
 
 (async () => {
