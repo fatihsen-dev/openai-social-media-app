@@ -12,9 +12,6 @@ module.exports = {
             darkBlue: "#005c69",
          },
       },
-      colors: {
-         light: "#f5f5f5",
-      },
       container: {
          center: true,
       },
