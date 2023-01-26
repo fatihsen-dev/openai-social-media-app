@@ -1,4 +1,5 @@
-import { createToken } from "./../helpers/token/authToken";
+import Joi from "joi";
+import { createToken, verifyToken } from "./../helpers/token/authToken";
 import { User } from "./../models/User";
 import { loginValidator, registerValidator } from "./../helpers/auth/authValidator";
 import { Request, Response } from "express";
@@ -58,4 +59,24 @@ export const login = async (req: Request, res: Response) => {
       }
       return res.status(404).send({ message: "User not exist" });
    } catch (error) {}
+};
+
+export const control = async (req: Request, res: Response) => {
+   const { error } = Joi.object({
+      token: Joi.string().required().min(10),
+   }).validate(req.body);
+
+   if (error) {
+      return res.send({ message: error.details[0].message });
+   }
+
+   try {
+      const data = verifyToken(req.body.token);
+
+      if (data) {
+         return res.send(data);
+      }
+   } catch (error) {
+      return res.status(422).send({ message: "Ivalid token" });
+   }
 };
