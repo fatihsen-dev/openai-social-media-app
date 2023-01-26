@@ -1,15 +1,17 @@
 export default function Logo({
-   color,
-   size,
+   color = "#ffffff",
+   size = 120,
    icon,
+   className = "",
 }: {
-   color: string;
-   size: number;
+   color?: string;
+   size?: number;
    icon?: string;
+   className?: string;
 }) {
    return (
       <svg
-         className='text-lg'
+         className={className}
          width={size}
          height={size / 4}
          viewBox='0 0 149 37'
