@@ -22,8 +22,21 @@ export const authSlice = createSlice({
          state.status = action.payload.status;
          state.user = action.payload.user;
       },
+      Logout: (state) => {
+         state.status = false;
+         localStorage.removeItem("token");
+         state.user = {
+            _id: "",
+            username: "",
+            email: "",
+            avatar: null,
+            photos: [],
+            token: "",
+            joined: "",
+         };
+      },
    },
 });
 
-export const { Login } = authSlice.actions;
+export const { Login, Logout } = authSlice.actions;
 export default authSlice.reducer;
