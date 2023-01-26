@@ -1,2 +1,18 @@
 @import url("./tailwind.css");
 @import url("./reset.css");
+
+.login-input {
+   @apply bg-transparent border border-light px-2 py-1 rounded text-lg shadow-[0_0px_10px_rgba(0,0,0,0.3)] shadow-light/10 w-full;
+}
+.login-input-username {
+   @apply bg-transparent border border-light px-2 py-1 rounded text-lg shadow-[0_0px_10px_rgba(0,0,0,0.3)] shadow-light/10 w-[340px];
+}
+.login-input::placeholder {
+   @apply text-[16px] -translate-y-0.5;
+}
+.auth-form {
+   @apply box-content w-[360px];
+}
+.auth-form > * {
+   @apply box-content;
+}
