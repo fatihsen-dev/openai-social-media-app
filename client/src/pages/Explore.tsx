@@ -1,3 +1,10 @@
+import Navbar from "../components/Navbar";
+
 export default function Explore() {
-   return <div>Explore</div>;
+   return (
+      <div>
+         <Navbar />
+         Explore
+      </div>
+   );
 }
