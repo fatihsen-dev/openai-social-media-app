@@ -7,6 +7,9 @@ const HTTP = axios.create({
 export const loginRequest = async (data: { email: string; password: string }) =>
    await HTTP.post("/user/login", data);
 
+export const controlRequest = async (token: string) =>
+   await HTTP.post("/user/login", token);
+
 export const registerRequest = async (data: {
    username: string;
    email: string;
