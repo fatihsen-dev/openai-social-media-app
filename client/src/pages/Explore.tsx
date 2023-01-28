@@ -1,10 +1,16 @@
+import { Helmet } from "react-helmet";
 import Navbar from "../components/Navbar";
 
 export default function Explore() {
    return (
-      <div>
-         <Navbar />
-         Explore
-      </div>
+      <>
+         <Helmet>
+            <title>Explore</title>
+         </Helmet>
+         <div>
+            <Navbar />
+            Explore
+         </div>
+      </>
    );
 }
