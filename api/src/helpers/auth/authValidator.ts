@@ -13,7 +13,7 @@ export const registerValidator = (user: RegisterType) => {
             "string.pattern.base": "Username cannot start with a number",
          }),
       email: Joi.string().required().min(8).max(50).email(),
-      password: Joi.string().min(8).max(50).required(),
+      password: Joi.string().min(6).max(50).required(),
       avatar: Joi.string().min(5).max(300),
    }).validate(user);
 };
@@ -21,6 +21,6 @@ export const registerValidator = (user: RegisterType) => {
 export const loginValidator = (user: LoginType) => {
    return Joi.object({
       email: Joi.string().required().min(8).max(50).email(),
-      password: Joi.string().min(8).max(50).required(),
+      password: Joi.string().min(6).max(50).required(),
    }).validate(user);
 };
