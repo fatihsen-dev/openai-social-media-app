@@ -1,9 +1,6 @@
 import { toast } from "react-hot-toast";
 
 export const Toast = ({ message, variant }: { message: string; variant?: "succes" }) => {
-   let t: any;
-   // t.visible
-
    toast.custom((t) => (
       <div
          className={`${
