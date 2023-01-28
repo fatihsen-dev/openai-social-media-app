@@ -18,6 +18,7 @@ export const register = async (req: Request, res: Response) => {
       });
 
       if (userControl) {
+         console.log(userControl);
          return res.status(302).send({ message: "Username or Email already exist" });
       }
 
@@ -63,6 +64,7 @@ export const login = async (req: Request, res: Response) => {
 
 export const control = async (req: Request, res: Response) => {
    const { error } = Joi.object({
+      _id: Joi.string().required().min(24).max(24),
       token: Joi.string().required().min(10),
    }).validate(req.body);
 
@@ -71,12 +73,18 @@ export const control = async (req: Request, res: Response) => {
    }
 
    try {
-      const data = verifyToken(req.body.token);
+      const user = await User.findById(req.body._id).select("-password -__v -updated");
 
-      if (data) {
-         return res.send(data);
+      if (user) {
+         if (user.token === req.body.token) {
+            return res.send(user);
+         } else {
+            return res.status(422).send({ message: "Incompatible token" });
+         }
+      } else {
+         return res.status(422).send({ message: "Invalid id" });
       }
    } catch (error) {
-      return res.status(422).send({ message: "Ivalid token" });
+      return res.status(422).send({ message: "Invalid token" });
    }
 };
