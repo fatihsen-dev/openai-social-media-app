@@ -9,6 +9,7 @@
       "preview": "vite preview"
    },
    "dependencies": {
+      "@headlessui/react": "^1.7.8",
       "@lottiefiles/react-lottie-player": "^3.5.0",
       "@reduxjs/toolkit": "^1.9.1",
       "@types/react-helmet": "^6.1.6",
