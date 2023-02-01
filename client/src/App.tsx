@@ -17,33 +17,34 @@ export default function App() {
    const dispatch = useDispatch<Dispatch>();
    const navigate = useNavigate();
    const { status } = useSelector((store: RootState) => store.auth);
-
    useEffect(() => {
       if (localStorage.getItem("token")) {
          (async () => {
             try {
                const { token, _id } = JSON.parse(`${localStorage.getItem("token")}`);
+
                const response = await controlRequest({ token, _id });
                setTimeout(() => {
                   dispatch(Login({ user: response.data, status: true }));
-               }, 500);
+               }, 1500);
                localStorage.setItem(
                   "token",
-                  JSON.stringify({ _id: response.data._id, token: response.data.token })
+                  JSON.stringify({
+                     _id: response.data._id,
+                     token: response.data.token,
+                  })
                );
-               navigate("/");
             } catch (error: any) {
-               Toast({ message: error.response.data.message });
                setTimeout(() => {
                   dispatch(Logout());
-               }, 500);
+               }, 1500);
                navigate("/");
             }
          })();
       } else {
          setTimeout(() => {
             dispatch(Logout());
-         }, 500);
+         }, 1500);
          navigate("/");
       }
    }, []);
@@ -51,7 +52,7 @@ export default function App() {
    return (
       <div className='bg-dark h-full text-white'>
          {status !== null ? (
-            <div className='h-full container bg-dark border border-light text-light relative'>
+            <div className='h-full 2xl:container xl:container bg-dark border border-light text-light relative'>
                <Routes>
                   <Route index element={<Home />} />
                   {status ? <Route path='/profile' element={<Profile />} /> : null}
