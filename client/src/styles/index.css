@@ -16,3 +16,29 @@
 .auth-form > * {
    @apply box-content;
 }
+
+.home-left-animation {
+   animation: leftAnimation 35s linear alternate infinite;
+}
+
+.home-right-animation {
+   animation: rightAnimation 35s linear alternate infinite;
+}
+
+@keyframes leftAnimation {
+   from {
+      transform: translateX(0);
+   }
+   to {
+      transform: translateX(-100%);
+   }
+}
+
+@keyframes rightAnimation {
+   from {
+      transform: translateX(0);
+   }
+   to {
+      transform: translateX(100%);
+   }
+}
