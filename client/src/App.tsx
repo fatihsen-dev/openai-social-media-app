@@ -44,6 +44,7 @@ export default function App() {
          setTimeout(() => {
             dispatch(Logout());
          }, 500);
+         navigate("/");
       }
    }, []);
 
