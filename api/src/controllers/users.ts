@@ -69,7 +69,7 @@ export const control = async (req: Request, res: Response) => {
    }).validate(req.body);
 
    if (error) {
-      return res.send({ message: error.details[0].message });
+      return res.status(400).send({ message: error.details[0].message });
    }
 
    try {
