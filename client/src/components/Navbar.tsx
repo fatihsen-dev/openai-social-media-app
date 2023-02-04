@@ -34,11 +34,11 @@ export default function Navbar() {
          {status ? (
             <div className='relative'>
                <Menu>
-                  <Menu.Button className='text-lg px-3 py-0.5 rounded-sm bg-[#252525] font-medium cursor-pointer flex items-center gap-3'>
+                  <Menu.Button className='text-lg px-3 py-0.5 rounded-sm bg-dark2 font-medium cursor-pointer flex items-center gap-3'>
                      <span>{user.username}</span>
                      <FaUserAlt />
                   </Menu.Button>
-                  <Menu.Items className='bg-[#252525] gap-1 flex flex-col p-2 rounded-sm absolute right-0 top-10'>
+                  <Menu.Items className='bg-dark2 gap-1 flex flex-col p-2 rounded-sm absolute right-0 top-10'>
                      <Menu.Item>
                         <span className='px-2 py-1 pr-12 bg-dark/40 w-full text-start rounded-sm transition-colors'>
                            {user.email}
