@@ -8,12 +8,11 @@ export const User = model(
          email: { type: String, required: true },
          password: { type: String, required: true },
          avatar: { type: String, default: null },
-         photos: [{ type: Schema.Types.ObjectId, ref: "Photo" }],
          token: { type: String, default: null },
       },
       {
          timestamps: {
-            createdAt: "joined",
+            createdAt: "created",
             updatedAt: "updated",
          },
       }
