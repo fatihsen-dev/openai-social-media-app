@@ -53,10 +53,23 @@ export default function Explore() {
          <div className='h-full flex flex-col'>
             <Navbar />
             <div className='flex-1 overflow-auto'>
-               <div className='font-medium text-5xl text-center py-32'>
+               <div className='font-medium 2xl:text-6xl lg:text-6xl md:text-5xl text-4xl text-center 2xl:py-40 lg:py-40 py-20'>
                   <span className='explore-text-linear font-bold'>Explore</span> Yourself
                </div>
-               <div>{/* <pre>{JSON.stringify(galery, null, 5)}</pre> */}</div>
+               <div className='flex flex-col items-center gap-3 pb-5'>
+                  {galery.length > 1 &&
+                     galery.map((ar: Array<OneImgType>, i: number) => (
+                        <div className='explore-div' key={i}>
+                           {ar.map((item: OneImgType, index: number) => (
+                              <div key={index}>
+                                 <img
+                                    src={`${import.meta.env.VITE_API_URL}/${item.image}`}
+                                 />
+                              </div>
+                           ))}
+                        </div>
+                     ))}
+               </div>
             </div>
          </div>
       </>
