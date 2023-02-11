@@ -14,3 +14,11 @@ export const registerRequest = async (data: {
    email: string;
    password: string;
 }) => await HTTP.post("/user/register", data);
+
+export const getImages = async () => await HTTP.get("/photo");
+
+export const createImage = async (data: { prompt: string; owner: string }) =>
+   await HTTP.post("/photo/create", data);
+
+export const updateImageState = async (data: { _id: string }) =>
+   await HTTP.post("/photo/status", data);
