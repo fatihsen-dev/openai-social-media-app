@@ -10,7 +10,7 @@ const initialState: UserType = {
       avatar: null,
       photos: [],
       token: "",
-      joined: "",
+      created: "",
    },
 };
 
@@ -32,7 +32,7 @@ export const authSlice = createSlice({
             avatar: null,
             photos: [],
             token: "",
-            joined: "",
+            created: "",
          };
       },
    },
