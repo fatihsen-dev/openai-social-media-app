@@ -7,6 +7,6 @@ export type UserType = {
       avatar: null | string;
       photos: any[];
       token: string;
-      joined: string;
+      created: string;
    };
 };
