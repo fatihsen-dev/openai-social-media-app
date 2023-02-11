@@ -26,7 +26,7 @@ export default function App() {
                const response = await controlRequest({ token, _id });
                setTimeout(() => {
                   dispatch(Login({ user: response.data, status: true }));
-               }, 1500);
+               }, 1000);
                localStorage.setItem(
                   "token",
                   JSON.stringify({
@@ -37,7 +37,7 @@ export default function App() {
             } catch (error: any) {
                setTimeout(() => {
                   dispatch(Logout());
-               }, 1500);
+               }, 1000);
                navigate("/");
             }
          })();
