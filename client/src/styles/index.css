@@ -25,6 +25,103 @@
    animation: rightAnimation 35s linear alternate infinite;
 }
 
+.loader {
+   display: inline-block;
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
+   border: 2px solid #222;
+   border-left-color: transparent;
+   animation: loaderAnimate 0.7s linear infinite;
+}
+.explore-text-linear {
+   background: linear-gradient(to right, #005c69, #ead94c);
+   background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+.explore-div {
+   display: grid;
+   gap: 10px;
+   grid-template-columns: repeat(5, 190px);
+   grid-template-rows: 190px 190px;
+   grid-template-areas:
+      "a a b c c"
+      "a a d d d";
+   line-height: 0;
+}
+.explore-div:nth-of-type(even) {
+   grid-template-areas:
+      "c c b a a"
+      "d d d a a";
+}
+.explore-div > div {
+   line-height: 0;
+   cursor: pointer;
+}
+.explore-div > div > img {
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
+   border-radius: 5px;
+}
+.explore-div > div:nth-of-type(1) {
+   grid-area: a;
+}
+.explore-div > div:nth-of-type(2) {
+   grid-area: b;
+}
+.explore-div > div:nth-of-type(3) {
+   grid-area: c;
+}
+.explore-div > div:nth-of-type(4) {
+   grid-area: d;
+}
+
+@media (width < 1024px) {
+   .explore-div {
+      grid-template-columns: repeat(5, 140px);
+      grid-template-rows: 140px 140px;
+      grid-template-areas:
+         "a a b c c"
+         "a a d d d";
+   }
+   .explore-div:nth-of-type(even) {
+      grid-template-areas:
+         "c c b a a"
+         "d d d a a";
+   }
+}
+
+@media (width < 768px) {
+   .explore-div {
+      padding: 0 20px;
+      grid-template-columns: repeat(2, auto);
+      grid-template-rows: repeat(3, auto);
+      grid-template-areas:
+         "a a b b"
+         "a a b b"
+         "c c d d"
+         "c c d d";
+   }
+   .explore-div:nth-of-type(even) {
+      grid-template-areas:
+         "a a b b"
+         "a a b b"
+         "c c d d"
+         "c c d d";
+   }
+}
+
+@keyframes loaderAnimate {
+   from {
+      transform: rotate(0deg);
+   }
+   to {
+      transform: rotate(360deg);
+   }
+}
+
 @keyframes leftAnimation {
    from {
       transform: translateX(0);
@@ -41,4 +138,16 @@
    to {
       transform: translateX(100%);
    }
+}
+
+::-webkit-scrollbar {
+   @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+   @apply bg-[#181818];
+}
+
+::-webkit-scrollbar-thumb {
+   @apply bg-[#050505];
 }
