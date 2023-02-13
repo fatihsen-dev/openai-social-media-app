@@ -22,3 +22,10 @@ export const createImage = async (data: { prompt: string; owner: string }) =>
 
 export const updateImageState = async (data: { _id: string }) =>
    await HTTP.post("/photo/status", data);
+
+export const getUserImages = async (_id: string) =>
+   await HTTP.get("/photo/userimages", {
+      headers: {
+         _id,
+      },
+   });
