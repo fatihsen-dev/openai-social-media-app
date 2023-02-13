@@ -85,4 +85,24 @@ export const postUpdate = async (req: Request, res: Response) => {
    }
 };
 
-export const getUserPost = async (req: Request, res: Response) => {};
+export const getUserImages = async (req: Request, res: Response) => {
+   const { error } = Joi.object({
+      _id: Joi.string().min(24).max(24).required(),
+   })
+      .options({ allowUnknown: true })
+      .validate(req.headers);
+
+   if (error) {
+      return res.status(404).send({ message: error.details[0].message });
+   }
+
+   return res.send(
+      await Photo.find({ owner: req.headers._id })
+         .sort({ created: -1 })
+         .select("-__v -updated -shared")
+         .populate({
+            path: "owner",
+            select: "-password -__v -token -updated -created -avatar",
+         })
+   );
+};
