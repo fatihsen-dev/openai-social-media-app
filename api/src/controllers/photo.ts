@@ -97,7 +97,7 @@ export const getUserImages = async (req: Request, res: Response) => {
    }
 
    return res.send(
-      await Photo.find({ owner: req.headers._id })
+      await Photo.find({ owner: req.headers._id, shared: true })
          .sort({ created: -1 })
          .select("-__v -updated -shared")
          .populate({
