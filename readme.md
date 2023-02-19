@@ -1,6 +1,6 @@
-# Posity Social Media App
+# Openai Social Media Uygulaması
 
-Posity uygulaması bildiğim ve öğrendiğim teknolojileri pekiştirmek için yaptığım bir sosyal medya projesidir. İnsanların gönderi paylaşabildiği, gönderi beğenebildiği, yorum yapabildiği ve diğer kullanıcılarında gönderilerini paylaşabildiğiniz bir fullstack uygulamadır.
+OpenAI projesi, kullanıcıların verdiği önerilerle resimler oluşturup bu resimleri diğer kullanıcılarla paylaşmalarını sağlayan bir sistemdir.
 
 <br/>
 
